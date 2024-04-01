@@ -1,0 +1,44 @@
+= Java Multi-Release Jar (JEP-238)
+
+Test project to see how to handle multi-release JAR with Maven.
+The project prints a simple output provided by different implementations depending on the Java Version.
+
+== Demo
+
+To run manually.
+First build,
+
+ mvn package -DskipTests
+
+ java -jar target/java-multi-release-jar-0.1.0-SNAPSHOT.jar
+
+Use https://sdkman.io/[sdkman!] to configure different Java version.
+You should see that versions above 17 return with the `17` implementation, while older ones use the `default`.
+
+|===
+|Java Version |Output
+
+|11.0.22-tem
+|Result: aaabbb (default, 11)
+
+|17.0.10-tem
+|Result: aaabbb (j17, 17)
+
+|21.0.2-tem
+|Result: aaabbb (j17, 17)
+|===
+
+
+== Learnt lessons
+
+* It has several drawbacks (specially for testing):
+** Intellij does not recognize the path and runs always default code from tests
+** The Java version used in compilation needs to be the highers possible, which can hide issues.
+
+Overall, this seems an approach for "some" support for future Java versions, more than a solution for backward compatibility.
+
+== Resources used:
+
+* https://www.baeldung.com/java-multi-release-jar
+* https://www.baeldung.com/maven-multi-release-jars
+* https://maven.apache.org/plugins/maven-compiler-plugin/multirelease.html
