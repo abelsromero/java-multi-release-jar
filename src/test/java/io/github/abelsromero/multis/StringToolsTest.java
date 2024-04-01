@@ -13,7 +13,7 @@ class StringToolsTest {
 
         String result = new StringTools().concat(a, b);
 
-        assertThat(result).isEqualTo(" (default)");
+        assertThat(result).isEqualTo(" (default, 17)");
     }
 
     @Test
@@ -23,6 +23,6 @@ class StringToolsTest {
 
         String result = new StringTools().concat(a, b);
 
-        assertThat(result).isEqualTo("ab (default)");
+        assertThat(result).isEqualTo("ab (default, 17)");
     }
 }

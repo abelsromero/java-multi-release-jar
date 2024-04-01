@@ -9,7 +9,7 @@ public class Runner {
         final StringTools strings = new StringTools();
 
         String a = "aaa";
-        String b = "aaa";
+        String b = "bbb";
         String result = strings.concat(a, b);
 
         System.out.println("Result: " + result );
